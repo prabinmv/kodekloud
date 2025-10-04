@@ -13,12 +13,12 @@ spec:
         - mountPath: /etc/nginx/nginx.conf
           name: nginx-config-volume
           subPath: nginx.conf
-        - mountPath: /shared
+        - mountPath: /var/www/html      
           name: shared-files
     - image: php:8.1-fpm-alpine
       name: php-fpm-container
       volumeMounts:
-        - mountPath: /shared
+        - mountPath: /var/www/html      
           name: shared-files
 
   volumes:
