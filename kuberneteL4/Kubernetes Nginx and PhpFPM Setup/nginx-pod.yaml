@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx-phpfpm
+  name: nginx-phpfpm
+spec:
+  containers:
+    - image: nginx:latest
+      name: nginx-phpfpm
+      volumeMounts:
+        - mountPath: /shared
+          name: shared-files
+
+  volumes:
+    - name: shared-files
+      emptyDir:
+        sizeLimit: 500Mi
