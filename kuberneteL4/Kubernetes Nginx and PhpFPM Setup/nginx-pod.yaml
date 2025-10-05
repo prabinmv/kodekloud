@@ -13,22 +13,22 @@ spec:
         - mountPath: /etc/nginx/nginx.conf
           name: nginx-config-volume
           subPath: nginx.conf
-        - mountPath: /var/www/html      
-          name: shared-filesports:
-    - containerPort:  8091
-      name:  http
-      
+        - mountPath: /var/www/html
+          name: shared-files
+      ports:
+        - containerPort: 8091
+          name: http
+
     - image: php:8.1-fpm-alpine
       name: php-fpm-container
       volumeMounts:
-        - mountPath: /var/www/html      
+        - mountPath: /var/www/html
           name: shared-files
 
   volumes:
     - name: shared-files
       emptyDir:
-        sizeLimit: 500Mi- name: nginx-config-volume
+        sizeLimit: 500Mi
     - name: nginx-config-volume
       configMap:
         name: nginx-config
-     
