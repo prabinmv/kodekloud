@@ -4,7 +4,7 @@ metadata:
   name: redis-mastere
 spec:
   selector:
-    app: redis
+    app: redisslave
   ports:
     - protocol: TCP
       port: 6379
